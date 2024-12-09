@@ -2,24 +2,35 @@ import React, { useState, useEffect } from 'react';
 
 const RandomBooruBackground = () => {
   const [imageUrl, setImageUrl] = useState('');
-  const danbooruApiUrl = 'https://danbooru.donmai.us/posts/random.json';
-  const apiKey = 'YYjGnPiU4J7eaYf5XDuTvMjyb';
+  const corsProxyUrl = 'https://api.allorigins.win/raw?url=';
+  const danbooruApiUrl = 'https://danbooru.donmai.us/posts.json';
+  const tag = 'ratio:16:9';
   const login = 'zack0208';
+  const apiKey = 'YjGnPiU4J7eaYf5XDuTvMjyb';
 
   useEffect(() => {
     const fetchRandomImage = async () => {
       try {
-        const response = await fetch(danbooruApiUrl );
+        
+        const response = await fetch(`https://danbooru.donmai.us/posts.json?login=zack0208&api_key=YjGnPiU4J7eaYf5XDuTvMjyb&tags=ratio:16:9&page=10`  
+         
+            
+          
+         );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const imageData = await response.json();
-        const imageUrl = imageData.file_url;
+        const randomPost = imageData[Math.floor(Math.random() * imageData.length)];
+        const imageUrl = randomPost.file_url;
         setImageUrl(imageUrl);
-        console.log(imageData)
+        console.log(randomPost)
       } catch (error) {
         console.error('Error fetching random image:', error);
       }
     };
     fetchRandomImage();
-  }, [danbooruApiUrl, apiKey, login]);
+  }, [danbooruApiUrl, tag, login, apiKey]);
 
   useEffect(() => {
     const updateBackgroundImage = () => {
