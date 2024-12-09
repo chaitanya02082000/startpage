@@ -1,13 +1,13 @@
 import './App.css';
-import BackgroundImageFetcher from './back';
- 
+import RandomBooruBackground from './back';
+   
 function App() {
   return (
     <div className="App">
     
     
    
-    <BackgroundImageFetcher/>
+    <RandomBooruBackground/>
    
    
    
