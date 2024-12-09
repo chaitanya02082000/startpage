@@ -1,14 +1,11 @@
-import logo from './logo.svg';
+import DanbooruBackground from './back';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-   <p>link1</p>
-    <p>link 2</p>
     
-   
-   
+   <DanbooruBackground/>
    
    
    
