@@ -1,14 +1,13 @@
-import DanbooruBackground from './back';
 import './App.css';
-
+import BackgroundImageFetcher from './back';
+ 
 function App() {
   return (
     <div className="App">
     
-   <DanbooruBackground/>
+    
    
-   
-   
+    <BackgroundImageFetcher/>
    
    
    
