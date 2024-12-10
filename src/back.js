@@ -22,9 +22,9 @@ const RandomBooruBackground = () => {
         }
         const imageData = await response.json();
         const randomPost = imageData[Math.floor(Math.random() * imageData.length)];
-        const imageUrl = randomPost.file_url;
+        const imageUrl = randomPost.media_asset.variants[3].url;
         setImageUrl(imageUrl);
-        console.log(randomPost)
+        console.log(imageUrl)
       } catch (error) {
         console.error('Error fetching random image:', error);
       }
